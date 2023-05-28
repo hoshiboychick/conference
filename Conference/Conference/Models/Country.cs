@@ -15,5 +15,4 @@ public partial class Country
 
     public short NumCode { get; set; }
 
-    public virtual ICollection<Participant> Participants { get; set; } = new List<Participant>();
 }

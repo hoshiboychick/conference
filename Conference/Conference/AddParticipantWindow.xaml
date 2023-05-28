@@ -126,18 +126,22 @@
                 <CheckBox Content="Прикрепить к мероприятию"
                           FontSize="11"
                           HorizontalAlignment="Center"
-                          Name="AttachToEventCheckBox"/>
+                          Name="AttachToEventCheckBox"
+                          Checked="AttachToEventCheckBox_Checked"
+                          Unchecked="AttachToEventCheckBox_Unchecked"/>
 
                 <StackPanel Orientation="Horizontal"
                             Margin="0 5 0 0"
-                            Visibility="Collapsed"
-                            Name="DirectionStackPanel">
+                            Name="EventStackPanel">
                     <TextBlock Text="Мероприятие:"
-                           Width="100"
-                           TextAlignment="Right"/>
+                               Name="EventTextBlock"
+                               Width="100"
+                               TextAlignment="Right"
+                               Visibility="Hidden"/>
                     <ComboBox Width="150"
                               Margin="5 0 0 0"
                               Name="EventComboBox"
+                              Visibility="Hidden"
                               SelectedValue="{Binding Event}"/>
                 </StackPanel>
 

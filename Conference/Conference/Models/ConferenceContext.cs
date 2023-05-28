@@ -81,11 +81,6 @@ public partial class ConferenceContext : DbContext
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.Surname).HasMaxLength(100);
 
-            entity.HasOne(d => d.Country).WithMany(p => p.Participants)
-                .HasForeignKey(d => d.CountryId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Participa__Count__2D27B809");
-
             entity.HasOne(d => d.RoleNavigation).WithMany(p => p.Participants)
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)

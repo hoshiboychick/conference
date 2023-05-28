@@ -19,7 +19,6 @@ public partial class Participant
 
     public DateTime Birthdate { get; set; }
 
-    public int CountryId { get; set; }
 
     public string Phone { get; set; } = null!;
 
@@ -32,8 +31,6 @@ public partial class Participant
     public string Photo { get; set; } = null!;
 
     public int RoleId { get; set; }
-
-    public virtual Country Country { get; set; } = null!;
 
     public virtual Role RoleNavigation { get; set; } = null!;
 
