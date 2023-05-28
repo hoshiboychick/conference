@@ -51,6 +51,8 @@ namespace Conference
                 {
                     EventsListView.ItemsSource = db.Events.ToList();
                 }
+
+                UpdateEvents();
             }
         }
 
@@ -67,7 +69,57 @@ namespace Conference
                 {
                     EventsListView.ItemsSource = db.Events.OrderBy(u => u.Date).ToList();
                 }
+
+                UpdateEvents();
             }
+        }
+
+        private void UpdateEvents()
+        {
+            using (ConferenceContext db = new ConferenceContext())
+            {
+
+                var currentEvents = db.Events.ToList();
+                EventsListView.ItemsSource = currentEvents;
+
+                //Сортировка
+                if (EventSortComboBox.SelectedIndex != -1)
+                {
+                    if (EventSortComboBox.SelectedValue == "Сначала поздние")
+                    {
+                        currentEvents = currentEvents.OrderByDescending(u => u.Date).ToList();
+
+                    }
+
+                    if (EventSortComboBox.SelectedValue == "Сначала ближайшие")
+                    {
+                        currentEvents = currentEvents.OrderBy(u => u.Date).ToList();
+
+                    }
+                }
+
+
+                // Фильтрация
+                if (EventFilterComboBox.SelectedIndex != -1)
+                {
+                    if (db.Events.Select(u => u.Direction).Distinct().ToList().Contains(EventFilterComboBox.SelectedValue))
+                    {
+                        currentEvents = currentEvents.Where(u => u.Direction == EventFilterComboBox.SelectedValue.ToString()).ToList();
+                    }
+                    else
+                    {
+                        currentEvents = currentEvents.ToList();
+                    }
+                }
+
+                EventsListView.ItemsSource = currentEvents;
+            }
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            new AuthWindow().Show();
+            this.Close();
         }
     }
 }

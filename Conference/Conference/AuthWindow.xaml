@@ -1,0 +1,67 @@
+﻿<Window x:Class="Conference.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Conference"
+        mc:Ignorable="d"
+        
+        Title="Авторизация" 
+        Height="400" 
+        Width="300"
+        
+        MinHeight="390"
+        MinWidth="290"
+        
+        MaxHeight="450"
+        MaxWidth="350"
+        
+        
+        WindowStartupLocation="CenterScreen"
+        Name="AuthorizationWindow">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Id"
+                           Width="70"
+                           Margin="0 0 5 0"
+                           Name="IdTextBlock"/>
+                <TextBox Width="100"
+                         Name="IdTextBox"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal"
+                        Margin="0 10 0 0">
+                <TextBlock Text="Пароль"
+                           Width="70"
+                           Margin="0 0 5 0"
+                           Name="PasswordTextBlock"/>
+                <PasswordBox Width="100"
+                         Name="PasswordBox"/>
+            </StackPanel>
+
+            <Button Content="Войти"
+                    Margin="0 10 0 0"
+                    Background="AliceBlue"
+                    Name="LoginButton"
+                    Height="22"
+                    Click="LoginButton_Click"
+                    IsDefault="True"/>
+
+            <StackPanel>
+                <TextBlock Name="captchaTextBlock"
+                           Margin="0 10 0 0">
+
+                    <TextBlock.Effect>
+                        <BlurEffect RenderingBias="Quality" KernelType="Box" Radius="0.5"/>
+                    </TextBlock.Effect>
+
+                </TextBlock>
+
+                <TextBox Name="captchaTextBox"/>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,132 @@
+﻿<Window x:Class="Conference.ParticipantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Conference"
+        mc:Ignorable="d"
+        
+        Title="Окно" 
+        Height="480" 
+        Width="1000"
+        
+        MinHeight="450"
+        MinWidth="950"
+        
+        WindowStartupLocation="CenterScreen"
+        Name="PartWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Окно кого-нибудь-там"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="Bold"
+                   Name="TitleTextBlock"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <Border BorderBrush="LightYellow" 
+                        BorderThickness="3"
+                        Height="200"
+                        Width="200"
+                        VerticalAlignment="Top"
+                        Margin="0 20 0 0"
+                        HorizontalAlignment="Center"
+                        >
+                    <Image
+                       Source="{Binding ImagePath}"
+                       Name="ImageBoxPath">
+                    </Image>
+                </Border>
+
+                <Button Content="Мой профиль"
+                        Height="50"
+                        Width="200"
+                        Margin="0 50 0 0"
+                        Background="LightGoldenrodYellow"
+                        Name="MyProfileButton"
+                        Click="MyProfileButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Выйти"
+                        Height="50"
+                        Width="200"
+                        Margin="0 20 0 0"
+                        Background="LightGoldenrodYellow"
+                        Name="LogoutButton"
+                        Click="LogoutButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Добрый афывфывф, Иванов Иван Иванович!"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           Margin="0 20 0 0"
+                           Name="GreetingTextBlock"
+                           Height="60"
+                           TextAlignment="Center"/>
+
+                <Button Content="Мероприятия"
+                        Height="70"
+                        Width="200"
+                        Margin="0 30 0 0"
+                        Background="LightGoldenrodYellow"
+                        Name="EventsButton"
+                        Click="EventsButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Участники"
+                        Height="70"
+                        Width="200"
+                        Margin="0 30 0 0"
+                        Background="LightGoldenrodYellow"
+                        Name="ParticipantsButton"
+                        Click="ParticipantsButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Добавить жюри/модератора"
+                        Height="70"
+                        Width="200"
+                        Margin="0 30 0 0"
+                        Background="LightGoldenrodYellow"
+                        Name="JuryButton"
+                        Click="JuryModerButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

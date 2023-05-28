@@ -86,7 +86,7 @@ public partial class ConferenceContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Participa__Count__2D27B809");
 
-            entity.HasOne(d => d.Role).WithMany(p => p.Participants)
+            entity.HasOne(d => d.RoleNavigation).WithMany(p => p.Participants)
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Participa__RoleI__2E1BDC42");

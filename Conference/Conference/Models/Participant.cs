@@ -35,5 +35,7 @@ public partial class Participant
 
     public virtual Country Country { get; set; } = null!;
 
-    public virtual Role Role { get; set; } = null!;
+    public virtual Role RoleNavigation { get; set; } = null!;
+
+    public virtual string? ImagePath { get { return System.IO.Path.Combine(Environment.CurrentDirectory, $"images/{Photo}"); } }
 }
